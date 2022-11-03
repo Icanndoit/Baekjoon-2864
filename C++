@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+
+int retmin(int n) {  // 최솟값(순서도 2, 4)을 반환하는 함수
+	int i = 1, ret = 0;
+	while (1) {
+		if (n % 10 == 6) {
+			ret += (5 * i);
+			i *= 10;
+			n /= 10;
+		}
+		else {
+			ret += ((n % 10) * i);
+			i *= 10;
+			n /= 10;
+		}
+		if (n < 10) {
+			if (n % 10 == 6)
+				ret += (5 * i);
+			else
+				ret += ((n % 10) * i);
+			break;
+		}
+	}
+	return ret;
+}
+
+int retmax(int n) {  // 최댓값(순서도 2, 3)을 반환하는 함수
+	int i = 1, ret = 0;
+	while (1) {
+		if (n % 10 == 5) {
+			ret += (6 * i);
+			i *= 10;
+			n /= 10;
+		}
+		else {
+			ret += ((n % 10) * i);
+			i *= 10;
+			n /= 10;
+		}
+		if (n < 10) {
+			if (n % 10 == 5) 
+				ret += (6 * i);
+			else
+				ret += ((n % 10) * i);
+			break;
+		}
+	}
+	return ret;
+}
+
+int main(void) {
+	int n1, n2, max1 = 0, min1 = 0, max2 = 0, min2 = 0;
+
+	cin >> n1;  cin >> n2;  // 순서도 1
+
+	min1 = retmin(n1);
+	max1 = retmax(n1);
+	min2 = retmin(n2);
+	max2 = retmax(n2);
+
+	cout << min1 + min2 << " " << max1 + max2 << endl;  // 순서도 6
+
+	return 0;
+}
