@@ -1,0 +1,28 @@
+n1, n2 = map(str, input().split())
+max1 = min1 = max2 = min2 = ""
+
+for i in range(0, len(n1), 1):
+    if n1[i] == '5':
+        max1 += '6'
+    else:
+        max1 += n1[i]
+
+for i in range(0, len(n1), 1):
+    if n1[i] == '6':
+        min1 += '5'
+    else:
+        min1 += n1[i]
+
+for i in range(0, len(n2), 1):
+    if n2[i] == '5':
+        max2 += '6'
+    else:
+        max2 += n2[i]
+
+for i in range(0, len(n2), 1):
+    if n2[i] == '6':
+        min2 += '5'
+    else:
+        min2 += n2[i]
+
+print(int(min1) + int(min2), int(max1) + int(max2))
