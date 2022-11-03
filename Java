@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class Practice {
+    public static int max(int n) {
+        int ret = 0, i = 1;
+        while (true) {
+            if (n % 10 == 5)
+                ret += (6 * i);
+            else
+                ret += (n % 10) * i;
+            if (n / 10 == 0)
+                break;
+            i *= 10;
+            n /= 10;
+        }
+        return ret;
+    }
+    public static int min(int n) {
+        int ret = 0, i = 1;
+        while (true) {
+            if (n % 10 == 6)
+                ret += (5 * i);
+            else
+                ret += (n % 10) * i;
+            if (n / 10 == 0)
+                break;
+            i *= 10;
+            n /= 10;
+        }
+        return ret;
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int n1 = input.nextInt();
+        int n2 = input.nextInt();
+
+        System.out.println((min(n1) + min(n2)) + " " + (max(n1) + max(n2)));
+
+    }
+
+}
